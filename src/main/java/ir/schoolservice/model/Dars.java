@@ -5,6 +5,9 @@ import jakarta.persistence.*;
 @Entity
 public class Dars {
 
+    public Dars() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
