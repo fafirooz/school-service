@@ -14,15 +14,6 @@ public class DarsController {
 
     @Autowired
     private DarsService darsService; // it has =  DarsServiceImpl
-    @GetMapping("/fariba")
-    public Dars homePage() {
-        return new Dars(1, "ali");
-    }
-
-    @PostMapping("/fariba")
-    public String newpost() {
-        return "post request";
-    }
 
     @GetMapping("/dars")
     public List<Dars> read() {
