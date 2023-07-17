@@ -3,34 +3,36 @@ package ir.schoolservice.model;
 import jakarta.persistence.*;
 
 @Entity
-public class Teacher {
+public class Teacher extends Person {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id;
-    @Column(nullable = false, unique = true)
-    private String name;
-    public Teacher(int Id , String name){
-        this.Id = Id;
-        this.name = name;
+    @Column(nullable = false, length = 2)
+    private int experience;
 
+    public Teacher(String name, String familyName, int experience) {
+        super(name, familyName);
+        this.experience = experience;
     }
 
     public Teacher() {
 
     }
 
-    public int getId(){
-        return Id;
+    public int getExperience() {
+        return experience;
     }
-    public void setId(int Id){
-        this.Id= Id;
 
+    public void setExperience(int experience) {
+        this.experience = experience;
     }
-    public String getName(){
-        return name;
-    }
-    public void setName( String name){
-        this.name= name;
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "experience=" + experience +
+                ", id=" + id +
+                ", name='" + name + '\'' +
+                ", familyName='" + familyName + '\'' +
+                ", age=" + age +
+                '}';
     }
 }

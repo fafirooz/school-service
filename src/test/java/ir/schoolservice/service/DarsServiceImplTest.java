@@ -28,12 +28,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class DarsServiceImplTest {
 
     @Mock
+    // avoid test the main repository
     private DarsRepository darsRepository;
 
     @InjectMocks
     private DarsService darsService = new DarsServiceImpl();
 
     private Iterable<Dars> darsList;
+    // a kind of list
 
     @BeforeEach
     void setUp() {

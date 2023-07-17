@@ -16,7 +16,7 @@ public class DarsServiceImpl implements DarsService {
 
     @Override
     public List<Dars> read() {
-        //if we want to read just one dars, read neads ip as an parameter
+        //if we want to read just one dars, read neads ip as a parameter
         Iterable<Dars> darsIterable = darsRepository.findAll();
 
         List<Dars> darsList = new ArrayList<>();
