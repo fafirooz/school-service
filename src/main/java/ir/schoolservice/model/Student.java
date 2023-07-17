@@ -1,15 +1,26 @@
 package ir.schoolservice.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import jakarta.persistence.*;
+
+import java.util.Set;
 
 @Entity
 public class Student extends Person {
 
     @Enumerated(EnumType.ORDINAL)
     private EducatoinLevel educatoinLevel;
+
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "student")
+    private Set<StudentDarsTeacher> studentDarsTeachers;
+
+    public Set<StudentDarsTeacher> getStudentDarsTeachers() {
+        return studentDarsTeachers;
+    }
+
+    private void addStudentDarsTeacher(StudentDarsTeacher studentDarsTeacher) {
+        studentDarsTeachers.add(studentDarsTeacher);
+    }
 
     public Student() {
     }
