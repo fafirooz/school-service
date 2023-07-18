@@ -4,6 +4,8 @@ import ir.schoolservice.model.Teacher;
 import ir.schoolservice.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,6 +19,11 @@ public class TeacherController {
     @GetMapping("/teacher")
     public List<Teacher> read() {
         return teacherService.read();
+    }
+
+    @PostMapping("/teacher")
+    public Teacher save(@RequestBody Teacher teacher) {
+        return teacherService.save(teacher);
     }
 
 }

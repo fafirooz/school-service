@@ -25,4 +25,9 @@ public class TeacherServiceImpl implements TeacherService{
 
         return teachersList;
     }
+
+    @Override
+    public Teacher save(Teacher teacher) {
+        return teacherRepository.save(teacher);
+    }
 }
