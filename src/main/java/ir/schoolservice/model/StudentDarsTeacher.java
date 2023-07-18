@@ -17,7 +17,6 @@ public class StudentDarsTeacher {
         return "StudentDarsTeacher{" +
                 "id=" + id +
                 ", score=" + score +
-                ", dars=" + dars +
                 ", teacher=" + teacher +
                 ", student=" + student +
                 '}';
@@ -25,15 +24,13 @@ public class StudentDarsTeacher {
 
     public StudentDarsTeacher() {}
 
-    public StudentDarsTeacher(Dars dars, Teacher teacher, Student student) {
-        this.dars = dars;
+    public StudentDarsTeacher(Teacher teacher, Student student) {
         this.teacher = teacher;
         this.student = student;
     }
 
-    public StudentDarsTeacher(int score, Dars dars, Teacher teacher, Student student) {
+    public StudentDarsTeacher(int score, Teacher teacher, Student student) {
         this.score = score;
-        this.dars = dars;
         this.teacher = teacher;
         this.student = student;
     }
@@ -54,14 +51,6 @@ public class StudentDarsTeacher {
         this.score = score;
     }
 
-    public Dars getDars() {
-        return dars;
-    }
-
-    public void setDars(Dars dars) {
-        this.dars = dars;
-    }
-
     public Teacher getTeacher() {
         return teacher;
     }
@@ -77,10 +66,6 @@ public class StudentDarsTeacher {
     public void setStudent(Student student) {
         this.student = student;
     }
-
-    @ManyToOne
-    @JoinColumn(name = "dars_id", nullable = false)
-    private Dars dars;
 
     @ManyToOne
     @JoinColumn(name = "teacher_id", nullable = false)

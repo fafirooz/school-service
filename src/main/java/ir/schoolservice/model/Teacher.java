@@ -10,7 +10,10 @@ public class Teacher extends Person {
     @Column(nullable = false, length = 2)
     private int experience;
 
-    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "teacher")
+    @OneToMany(mappedBy = "teacher", cascade = CascadeType.REMOVE)
+    private Set<TeacherDars> teacherDarsSet;
+
+    @OneToMany( mappedBy = "teacher")
     private Set<StudentDarsTeacher> studentDarsTeachers;
 
     public Teacher(String name, String familyName, int experience) {
