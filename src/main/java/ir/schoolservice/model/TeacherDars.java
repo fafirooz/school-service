@@ -13,8 +13,6 @@ public class TeacherDars {
     @Enumerated(EnumType.ORDINAL)
     private Dars dars;
 
-    private String test;
-
     @ManyToOne
     @JoinColumn(name = "teacher_id")
     @JsonIgnore
@@ -23,9 +21,8 @@ public class TeacherDars {
     public TeacherDars() {
     }
 
-    public TeacherDars(Dars dars, String test, Teacher teacher) {
+    public TeacherDars(Dars dars, Teacher teacher) {
         this.dars = dars;
-        this.test = test;
         this.teacher = teacher;
     }
 
@@ -43,14 +40,6 @@ public class TeacherDars {
 
     public void setDars(Dars dars) {
         this.dars = dars;
-    }
-
-    public String getTest() {
-        return test;
-    }
-
-    public void setTest(String test) {
-        this.test = test;
     }
 
     public Teacher getTeacher() {

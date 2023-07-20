@@ -25,8 +25,8 @@ public class Student extends Person {
     public Student() {
     }
 
-    public Student(String name, String familyName, EducatoinLevel educatoinLevel) {
-        super(name, familyName);
+    public Student(String name, String familyName, int nationalCode, EducatoinLevel educatoinLevel) {
+        super(name, familyName, nationalCode);
         this.educatoinLevel = educatoinLevel;
     }
 

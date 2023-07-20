@@ -18,8 +18,8 @@ public class Teacher extends Person {
     @OneToMany( mappedBy = "teacher")
     private Set<StudentDarsTeacher> studentDarsTeachers;
 
-    public Teacher(String name, String familyName, int experience) {
-        super(name, familyName);
+    public Teacher(String name, String familyName, int nationalCode, int experience) {
+        super(name, familyName, nationalCode);
         this.experience = experience;
     }
 
@@ -63,10 +63,7 @@ public class Teacher extends Person {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Teacher teacher)) return false;
-        return name == teacher.name &&
-         familyName == teacher.familyName &&
-         experience == teacher.experience &&
-         age == teacher.age;
+        return name.equals(teacher.name);
 
     }
 
@@ -74,9 +71,9 @@ public class Teacher extends Person {
     public int hashCode() {
         int hash = 5;
         hash = 37 * hash + (this.name != null ? this.name.hashCode() : 0);
-        hash = 37 * hash + (this.familyName != null ? this.familyName.hashCode() : 0);
+/*        hash = 37 * hash + (this.familyName != null ? this.familyName.hashCode() : 0);
         hash = 37 * hash + this.age;
-        hash = 37 * hash + this.experience;
+        hash = 37 * hash + this.experience;*/
         return hash;
     }
 

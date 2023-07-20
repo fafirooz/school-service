@@ -20,18 +20,42 @@ public abstract class Person {
     @Column
     protected int age; // optional
 
+    @Column(nullable = false, length = 10, unique = true)
+    private int nationalCode;
+
+    @Column(length = 124)
+    private String email;
+
+    public int getNationalCode() {
+        return nationalCode;
+    }
+
+    public void setNationalCode(int nationalCode) {
+        this.nationalCode = nationalCode;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
     public Person() {
     }
 
-    public Person(String name, String familyName) {
+    public Person(String name, String familyName, int nationalCode) {
         this.name = name;
         this.familyName = familyName;
+        this.nationalCode = nationalCode;
     }
 
-    public Person(String name, String familyName, int age) {
+    public Person(String name, String familyName, int age, int nationalCode, String email) {
         this.name = name;
         this.familyName = familyName;
         this.age = age;
+        this.nationalCode = nationalCode;
+        this.email = email;
     }
 
     public long getId() {
