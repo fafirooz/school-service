@@ -1,11 +1,9 @@
 package ir.schoolservice.model;
 
-import jakarta.annotation.Nonnull;
-import jakarta.annotation.Nullable;
+
 import jakarta.persistence.*;
 
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -14,11 +12,11 @@ public class Teacher extends Person {
     @Column(nullable = false, length = 2)
     private int experience;
 
-    @OneToMany(mappedBy = "teacher", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
     private Set<TeacherDars> teacherDarsSet = new HashSet<>();
 
     @OneToMany( mappedBy = "teacher")
-    private Set<StudentDarsTeacher> studentDarsTeachers = new HashSet<>();
+    private Set<StudentDarsTeacher> studentDarsTeachers;
 
     public Teacher(String name, String familyName, int experience) {
         super(name, familyName);
@@ -35,6 +33,18 @@ public class Teacher extends Person {
 
     public void setExperience(int experience) {
         this.experience = experience;
+    }
+
+    public Set<TeacherDars> getTeacherDarsSet() {
+        return teacherDarsSet;
+    }
+
+    public void setTeacherDarsSet(Set<TeacherDars> teacherDarsSet) {
+        this.teacherDarsSet = teacherDarsSet;
+    }
+
+    public void setStudentDarsTeachers(Set<StudentDarsTeacher> studentDarsTeachers) {
+        this.studentDarsTeachers = studentDarsTeachers;
     }
 
     public Set<StudentDarsTeacher> getStudentDarsTeachers() {
