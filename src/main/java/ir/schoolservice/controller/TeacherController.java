@@ -18,7 +18,7 @@ public class TeacherController {
     @Autowired
     private TeacherService teacherService;
 
-    @GetMapping("/teacher")
+    @GetMapping("/teacher") //////// comment!!!
     public List<Teacher> read() {
         return teacherService.read();
     }
