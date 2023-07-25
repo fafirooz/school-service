@@ -1,6 +1,9 @@
 package ir.schoolservice.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -20,9 +23,11 @@ public abstract class Person {
     @Column
     protected int age; // optional
 
+    @NotNull
     @Column(nullable = false, length = 10, unique = true)
     private int nationalCode;
 
+    @Email(message = "email format is not correct")
     @Column(length = 124)
     private String email;
 
