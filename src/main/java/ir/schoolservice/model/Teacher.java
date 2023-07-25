@@ -2,6 +2,7 @@ package ir.schoolservice.model;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,6 +13,7 @@ public class Teacher extends Person {
     @Column(nullable = false, length = 2)
     private int experience;
 
+    @NotEmpty
     @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
     private Set<TeacherDars> teacherDarsSet = new HashSet<>();
 
