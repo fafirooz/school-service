@@ -8,6 +8,7 @@ import java.util.Set;
 @Entity
 public class Student extends Person {
 
+
     @Enumerated(EnumType.ORDINAL)
     private EducatoinLevel educatoinLevel;
 
@@ -28,6 +29,7 @@ public class Student extends Person {
     public Student(String name, String familyName, int nationalCode, EducatoinLevel educatoinLevel) {
         super(name, familyName, nationalCode);
         this.educatoinLevel = educatoinLevel;
+
     }
 
     public EducatoinLevel getEducatoinLevel() {

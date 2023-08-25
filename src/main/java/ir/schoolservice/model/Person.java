@@ -10,9 +10,9 @@ import jakarta.validation.constraints.Size;
 public abstract class Person {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //uuid: gives a unique random string. identity: start of 0 with a sequence.
     protected long id;
-    
+
 
     @Column(nullable = false, length = 124)
     protected String name;
@@ -23,8 +23,8 @@ public abstract class Person {
     @Column
     protected int age; // optional
 
-    @NotNull
-    @Column(nullable = false, length = 10, unique = true)
+    @NotNull //before send to database send an error, bere database bargarde khataye ajibi mide malum nemishe.
+    @Column(nullable = false, length = 10, unique = true) //inja moghe insert kardan dar database nabayad null bashe.
     private int nationalCode;
 
     @Email(message = "email format is not correct")
